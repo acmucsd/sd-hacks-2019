@@ -6,8 +6,7 @@ Welcome! This repository contains all materials for our Javascript workshop at S
 ## Installing Node.js 
 Let's install node.js into our computers. Here are some links that you can follow to get it installed, based on the OS that you run.
 
-[Windows](https://nodesource.com/blog/installing-nodejs-tutorial-windows/)
-
+[Windows](https://nodesource.com/blog/installing-nodejs-tutorial-windows/) \
 [Mac OS](https://www.webucator.com/how-to/how-install-nodejs-on-mac.cfm)
 
 ## How do I JavaScript? 
@@ -41,6 +40,13 @@ A server is a computer that distributes content to all "clients" that connect to
 Servers communicate with each other with the HTTP (HyperText Transfer Protocol), which defines many kinds of different requests that clients can make to servers. 
 
 We'll be using a Node.js package called Express, and that will make it much easier for us to create routes and serve different content to the client-side.
+
+## Before we get started...
+Clone the repo and type:
+```
+npm init
+```
+This will auto-generate a file called `package.json`, which will contain all information about the application, including a description, how to start it, and a list of all packages the application depends on. The command line will prompt you for some basic information, just hit enter on everything for now.  
 
 ## Code! 
 
@@ -78,7 +84,19 @@ app.get('/getData', (req, res) => {
 ```
 We're only using two types of HTTP requests: GET requests, usually used to retrieve content from a server, and POST requests, usually used to send data to a server. 
 
+Our first route is the home route, which will display the main site (all html is provided!) Our example contains a basic form where you can fill in your favorite ice cream flavor. 
 
+The second route is for processing whatever form data the user inputs. When you hit "Submit", the web page will send a POST request to the "/insertData" route. We're adding that data to an array here, but normally you would store that data in some kind of database.
+
+The final route will just send the list of ice cream flavors in plain text. Again, we would normally use a database to store this data.
+
+
+### To-dos: 
+We want to make two new routes: one to get the number of people who voted for a certain ice cream flavor, and the other to get a random flavor from our array. Based on the example code, see if you can fill in the blanks yourself!
+
+
+## You're done! 
+Congratulations! You've built a basic Express server! We hope this newfound knowledge will be useful for your hacking endeavors! Good luck to all of you!
 
 ## Appendix A: Callback Functions
 You may have noticed that we're passing functions into our route functions, which seems strange at first sight, though there is a reason behind it. These are called callback functions, and we need them because our route function calls need to be *asynchronous*, meaning that they don't necessarily run in sequence. We want each route to serve its corresponding content immediately when a client connects, so to achieve this, all these functions take a callback function as an argument, and the callback will be called whenever the function finishes running, which in our case is whenever someone connects to a certain route. 
