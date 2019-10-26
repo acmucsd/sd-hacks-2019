@@ -36,12 +36,12 @@ app.get('/getData', (req, res) => {
 // TODO: Write a GET request to /count that checks iterates through 
 //       the array and sends how many of a certain ice cream flavor 
 //       exists to the response.
-
+//       Use req.param.flavor to grab the flavor parameter.
 
 // TODO: Write a GET request to /randomFlavor that sends a random 
 //       flavor from our array to the response.
 
-
+// Method that gets a random index from the iceCreams array
 function getRandomNumber() {
     const num = Math.floor(Math.random() * iceCreams.length);
     return num;
